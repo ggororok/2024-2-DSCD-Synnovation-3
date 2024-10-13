@@ -1,0 +1,25 @@
+import json
+import pdfplumber
+
+# PDF 파일 경로
+pdf_path = "./LIFEPLUS 댕댕이 보험 상품요약.pdf"
+json_path = "./converted_data.json"
+
+# PDF 내용 추출
+pdf_data = []
+with pdfplumber.open(pdf_path) as pdf:
+    for page in pdf.pages:
+        text = page.extract_text()
+        pdf_data.append(text)
+
+# 추출한 텍스트 데이터를 구조화하여 JSON으로 저장
+data = {
+    "title": "LIFEPLUS 댕댕이 보험 상품요약",
+    "pages": pdf_data
+}
+
+# JSON 파일로 저장
+with open(json_path, 'w', encoding='utf-8') as f:
+    json.dump(data, f, ensure_ascii=False, indent=4)
+
+print(f"PDF 파일이 JSON 파일로 변환되어 {json_path}에 저장되었습니다.")
