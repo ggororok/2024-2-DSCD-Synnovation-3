@@ -1,0 +1,49 @@
+from datasets import load_metric
+import json
+from transformers import pipeline
+from datasets import Dataset
+
+# 1. 평가용 데이터 로드
+with open("./qa_output.json", "r", encoding="utf-8") as f:
+    qa_data = json.load(f)
+
+# 2. JSON 데이터를 Huggingface Dataset으로 변환
+qa_dataset = Dataset.from_list(qa_data)
+
+# 3. 모델과 파이프라인 준비
+model.eval()  # 평가 모드 전환
+qa_pipeline = pipeline("text-generation", model=model, tokenizer=tokenizer)
+
+# 4. 모델 추론 수행: 배치 처리
+def generate_answers(batch):
+    outputs = qa_pipeline(batch["question"], max_new_tokens=50)
+    batch["predicted_answer"] = [output[0]["generated_text"] for output in outputs]
+    return batch
+
+# 배치 단위로 추론 수행
+result_dataset = qa_dataset.map(generate_answers, batched=True)
+
+# 5. 텍스트 정규화 함수 정의
+def normalize_text(text):
+    """텍스트 정규화: 공백과 대소문자 차이를 무시."""
+    return " ".join(text.strip().lower().split())
+
+# 평가에 사용될 정규화된 텍스트 생성
+normalized_true = [normalize_text(ans) for ans in result_dataset["answer"]]
+normalized_pred = [normalize_text(ans) for ans in result_dataset["predicted_answer"]]
+
+# BERTScore 계산
+bertscore_metric = load_metric("bertscore")
+bertscore_result = bertscore_metric.compute(predictions=normalized_pred, references=normalized_true, lang="en")
+
+# BERTScore 결과 출력
+print(f"BERTScore Precision: {sum(bertscore_result['precision']) / len(bertscore_result['precision']):.4f}")
+print(f"BERTScore Recall: {sum(bertscore_result['recall']) / len(bertscore_result['recall']):.4f}")
+print(f"BERTScore F1: {sum(bertscore_result['f1']) / len(bertscore_result['f1']):.4f}")
+
+
+# 예시 출력: 첫 번째 질문과 예측 답변 비교
+print("\n예시:")
+print(f"질문: {result_dataset[6]['question']}")
+print(f"실제 답변: {result_dataset[6]['answer']}")
+print(f"예측 답변: {result_dataset[6]['predicted_answer']}")
