@@ -28,15 +28,3 @@
 ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) &nbsp; ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) &nbsp; 
 </br>
 
-### Github 운영방식
-- pull request / commit message 양식 </br>
-  `커밋 분류`
-
-   - ADD : 데이터 분석 파일 및 코드 파일을 추가하였을 경우
-   - UPDATE : 코드 일부 삭제, 변경할 경우
-   - DELETE : 데이터 분석 파일 및 코드 파일을 삭제하였을 경우
-   - FIX : 코드 에러를 해결했을 경우
-   - REFACTOR : 파일 / 코드 구조화 시행했을 경우
-  
-   `커밋 메시지 / 풀리퀘스트 양식`</br>
-    ex) `git commit -m "ADD main.py"`
