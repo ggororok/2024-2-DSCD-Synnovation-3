@@ -1,0 +1,79 @@
+import json
+from datasets import load_metric, Dataset
+from langchain_core.prompts import ChatPromptTemplate
+from langchain.chains import create_retrieval_chain
+from langchain.chains.combine_documents import create_stuff_documents_chain
+
+# RAG 체인을 사용하여 질문에 대한 응답 생성
+def generate_qa_responses(rag_chain, qa_data):
+    responses = []
+    for entry in qa_data:
+        query = entry['question']
+        generated_response = rag_chain.invoke({"input": query})  # 수정: .run() 대신 .invoke() 사용
+        responses.append({
+            "question": query,
+            "context": generated_response.get('context', ''),  # 컨텍스트를 추가하여 응답에 포함, 없으면 빈 문자열
+            "true_answer": entry['answer'],
+            "predicted_answer": generated_response.get('answer', '')  # 예측된 답변이 없으면 빈 문자열
+        })
+    return responses
+
+# 1. 평가용 데이터 로드
+with open("./qa_output.json", "r", encoding="utf-8") as f:
+    qa_data = json.load(f)
+
+# 2. QA 데이터셋으로 변환
+qa_data_cleaned = [{"question": entry["question"], "answer": entry["answer"]} for entry in qa_data]
+qa_dataset = Dataset.from_list(qa_data_cleaned)
+
+# 3. RAG 체인 설정 (기존에 구성된 retriever 및 llm 사용)
+retriever = vectorstore.as_retriever()
+llm = ChatOllama(model="llama3.1", temperature=0.8, num_predict=50, base_url="http://localhost:11434")
+retrieval_qa_chat_prompt = ChatPromptTemplate.from_template("""
+다음 컨텍스트를 바탕으로 질문에 답변해주세요. 컨텍스트에 관련 정보가 없다면,
+"주어진 정보로는 답변할 수 없습니다."라고 말씀해 주세요.
+
+컨텍스트: {context}
+
+질문: {input}
+
+답변:
+""")
+combine_docs_chain = create_stuff_documents_chain(llm, retrieval_qa_chat_prompt)
+rag_chain = create_retrieval_chain(retriever, combine_docs_chain)
+
+# 4. RAG 체인으로 QA 응답 생성
+generated_qa_data = generate_qa_responses(rag_chain, qa_data)
+result_dataset = Dataset.from_list([
+    {
+        "question": entry["question"],
+        "context": str(entry["context"]),  # 컨텍스트를 문자열로 변환
+        "true_answer": entry["true_answer"],
+        "predicted_answer": str(entry["predicted_answer"])  # 모든 예측된 답변을 문자열로 변환
+    }
+    for entry in generated_qa_data
+])
+
+# 5. 텍스트 정규화 함수 정의
+def normalize_text(text):
+    """텍스트 정규화: 공백과 대소문자 차이를 무시."""
+    return " ".join(text.strip().lower().split())
+
+# 평가에 사용될 정규화된 텍스트 생성
+normalized_true = [normalize_text(ans) for ans in result_dataset["true_answer"]]
+normalized_pred = [normalize_text(ans) for ans in result_dataset["predicted_answer"]]
+
+# BERTScore 계산
+bertscore_metric = load_metric("bertscore")
+bertscore_result = bertscore_metric.compute(predictions=normalized_pred, references=normalized_true, lang="en")
+
+# BERTScore 결과 출력
+print(f"BERTScore Precision: {sum(bertscore_result['precision']) / len(bertscore_result['precision']):.4f}")
+print(f"BERTScore Recall: {sum(bertscore_result['recall']) / len(bertscore_result['recall']):.4f}")
+print(f"BERTScore F1: {sum(bertscore_result['f1']) / len(bertscore_result['f1']):.4f}")
+
+# 예시 출력: 첫 번째 질문과 예측 답변 비교
+print("\n예시:")
+print(f"질문: {result_dataset[6]['question']}")
+print(f"실제 답변: {result_dataset[6]['true_answer']}")
+print(f"예측 답변: {result_dataset[6]['predicted_answer']}")
