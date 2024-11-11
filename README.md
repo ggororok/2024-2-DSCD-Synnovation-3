@@ -22,6 +22,8 @@
 
 ### 분석 및 모델링 과정
 - 해당 모델과 파인튜닝을 활용한 모델 성능 비교
+</br>
+
 
 ### 데이터 분석 언어 및 라이브러리
 ![python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)&nbsp; ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) &nbsp;<br>
