@@ -20,10 +20,17 @@
 | 원종철 | RAG 모델 | [JongCheolWon](https://github.com/JongCheolWon) |
 </br>
 
-### 분석 및 모델링 과정
-- 해당 모델과 파인튜닝을 활용한 모델 성능 비교
+### 프로젝트 목표
+1. RAG 사용의 적합성 평가
+- 해당 모델(RAG)과 파인튜닝 LLM모델 성능 비교
+- 보험 관련 질의에 대한 답변 정확도 평가
+2. 학습 비용 및 시간 문제 해결
+- 파인튜닝 모델 대비 RAG의 비율, 시간 절감 효과 확인
+3. RAG 성능 일관성 평가
+- 여러 보험문서(손해보험, 자동차보험)에도 RAG의 성능이 보장되는지 확인
 </br>
 
+### 분석 및 모델링 과정
 
 ### 데이터 분석 언어 및 라이브러리
 ![python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)&nbsp; ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) &nbsp;<br>
