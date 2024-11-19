@@ -17,7 +17,8 @@
 | 김용태 | 팀장, 파인튜닝 모델 | [YongTae0](https://github.com/YongTae0) |
 | 김민지 | RAG 모델 | [ggororok](https://github.com/ggororok) |
 | 박준하 | 서버 관리, 파인튜닝 모델 | ㅋ |
-| 원종철 | RAG 모델 | [JongCheolWon](https://github.com/JongCheolWon) | </br>
+| 원종철 | RAG 모델 | [JongCheolWon](https://github.com/JongCheolWon) | 
+</br>
 
 ### ✨ 프로젝트 목표
 #### 1️⃣ RAG를 활용한 LLM 챗봇 모델 개발 
@@ -29,9 +30,8 @@
   - 파인튜닝 모델 대비 RAG의 비율, 시간 절감 효과 확인 </br>
 
 **3. RAG 성능 일관성 평가**
-  - 여러 보험문서(손해보험, 자동차보험)에도 RAG의 성능이 보장되는지 확인
-</br>
-
+  - 여러 보험문서(손해보험, 자동차보험)에도 RAG의 성능이 보장되는지 확인 </br>
+  
 #### 2️⃣ Gradio를 통한 웹 애플리케이션 개발 
 **1. RAG 사용의 적합성 평가**
   - 해당 모델(RAG)과 파인튜닝 LLM모델 성능 비교
