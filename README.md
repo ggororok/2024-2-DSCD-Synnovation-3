@@ -20,7 +20,7 @@
 | 원종철 | RAG 모델 | [JongCheolWon](https://github.com/JongCheolWon) |
 </br>
 
-### 프로젝트 목표
+### ✨ 프로젝트 목표
 **1. RAG 사용의 적합성 평가**
   - 해당 모델(RAG)과 파인튜닝 LLM모델 성능 비교
   - 보험 관련 질의에 대한 답변 정확도 평가
