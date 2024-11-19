@@ -1,4 +1,4 @@
-<h1 align="center"> 2024-2-DSCD-Synnovation-3 </h1>
+![image](https://github.com/user-attachments/assets/86b9af27-b780-4d11-8e1a-6dd88ab84f36)<h1 align="center"> 2024-2-DSCD-Synnovation-3 </h1>
 <div align="center"> <b>동국대학교 데이터 사이언스 캡스톤 디자인(졸업 프로젝트)을 진행하는 3조 Synnovation 팀 입니다.</b> </div>
 
 </br>
@@ -22,7 +22,7 @@
 
 ### ✨ 프로젝트 목표
 #### 1️⃣ RAG를 활용한 LLM 챗봇 모델 개발 
-**1. RAG 사용의 적합성 평가**
+**1. 사용자 로그인 기능** 
   - 해당 모델(RAG)과 파인튜닝 LLM모델 성능 비교
   - 보험 관련 질의에 대한 답변 정확도 평가 </br>
 
