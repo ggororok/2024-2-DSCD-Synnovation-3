@@ -40,9 +40,9 @@
 - 가입한 보험 선택 목록 조회
 </br>
 
-### 분석 및 모델링 과정
+## 🧑🏻‍💻 분석 및 모델링 과정
 
-### 데이터 분석 언어 및 라이브러리
+## 데이터 분석 언어 및 라이브러리
 ![python](https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white)&nbsp; ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white) &nbsp;<br>
 ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) &nbsp; ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) &nbsp; 
 </br>
