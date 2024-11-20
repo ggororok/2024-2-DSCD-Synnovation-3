@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/86b9af27-b780-4d11-8e1a-6dd88ab84f36)<h1 align="center"> 2024-2-DSCD-Synnovation-3 </h1>
 <div align="center"> <b>동국대학교 데이터 사이언스 캡스톤 디자인(졸업 프로젝트)을 진행하는 3조 Synnovation 팀 입니다.</b> </div> </br>
-<div align="center"> <img src="https://github.com/user-attachments/assets/4b5b44b2-c904-4e46-8adb-3dfe23c057e0" alt="메인이미지" width="800"> </div>
+<div align="center"> <img src="https://github.com/user-attachments/assets/4b5b44b2-c904-4e46-8adb-3dfe23c057e0" alt="메인이미지" width="1000"> </div>
 
 </br>
 </br>
