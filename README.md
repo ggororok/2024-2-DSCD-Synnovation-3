@@ -15,7 +15,7 @@
 |------|---|---|
 | 김용태 | 팀장, 파인튜닝 모델 | [YongTae0](https://github.com/YongTae0) |
 | 김민지 | RAG 모델 | [ggororok](https://github.com/ggororok) |
-| 박준하 | 서버 관리, 파인튜닝 모델 | ㅋ |
+| 박준하 | 서버 관리, 파인튜닝 모델 |(https://github.com/joonhai)|
 | 원종철 | RAG 모델 | [JongCheolWon](https://github.com/JongCheolWon) | 
 </br>
 
