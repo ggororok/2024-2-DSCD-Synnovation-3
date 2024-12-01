@@ -56,18 +56,15 @@
    +  Bert-Score, Cross-Encoder 지표 활용 평가  </br>
 + gradio 연결  </br>
    +  gradio를 통해 데모 UI 구축  </br>
-</br>
 2️⃣ 파인튜닝 모델 구축 </br>
 + 학습 데이터 전환: pdf를 JSON 파일로 변환 </br>
 + 학습 파라미터 설정: 제한된 환경 내에서 최적의 값으로 설정 </br>
 + 답변 성능 평가 </br>
    +  QA 데이터셋을 활용하여 예측답변와 ANSWER답변 유사도 비교 </br>
    +  Bert-Score, Cross-Encoder 지표 활용 평가 </br>
-</br>
 3️⃣ RAG모델과 파인튜닝 모델 성능 비교  </br>
 + 답변 평가: </br>
 + 시간 절감 효과: </br>
-</br>
 4️⃣ 타보험문서에 RAG 챗봇 적용  </br>
 + 타보험문서(손해, 자동차)를 RAG 모델 챗봇에 적용  </br>
 + 답변 성능 평가: 파인튜닝 모델과도 비교 </br>
