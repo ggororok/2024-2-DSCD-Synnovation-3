@@ -55,7 +55,8 @@
    +  QA 데이터셋을 활용하여 예측답변와 ANSWER답변 유사도 비교  </br>
    +  Bert-Score, Cross-Encoder 지표 활용 평가  </br>
 + gradio 연결  </br>
-   +  gradio를 통해 데모 UI 구축  </br>
+   +  gradio를 통해 데모 UI 구축
+  </br>
 2️⃣ 파인튜닝 모델 구축 </br>
 + 학습 데이터 전환: pdf를 JSON 파일로 변환 </br>
 + 학습 파라미터 설정: 제한된 환경 내에서 최적의 값으로 설정 </br>
