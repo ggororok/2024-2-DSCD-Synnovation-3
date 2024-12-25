@@ -70,12 +70,10 @@
    
 **3️⃣ RAG모델과 파인튜닝 모델 성능 비교**  </br>
 + **답변 평가** </br>
-   + |이름|역할|깃헙 아이디|
-     |------|---|---|
-     | 김용태 | 팀장, 파인튜닝 모델 | [YongTae0](https://github.com/YongTae0) |
-     | 김민지 | RAG 모델 | [ggororok](https://github.com/ggororok) |
-     | 박준하 | 서버 관리, 파인튜닝 모델 |[joonhai](https://github.com/joonhai)|
-     | 원종철 | RAG 모델 | [JongCheolWon](https://github.com/JongCheolWon) | 
+  |항목|생명보험|손해보험|자동차보험|
+  |------|---|---|---|
+  | RAG | BERT Score: 0.9205 / Cross Encoder: 0.9141 | BERT Score: 0.9205 / Cross Encoder: 0.9141 | BERT Score: 0.9205 / Cross Encoder: 0.9141 |
+  | 파인튜닝 | BERT Score: 0.9205 / Cross Encoder: 0.9141 | BERT Score: 0.9205 / Cross Encoder: 0.9141 | BERT Score: 0.9205 / Cross Encoder: 0.9141 |
 </br>
 
 
